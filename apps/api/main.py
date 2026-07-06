@@ -18,6 +18,10 @@ from routers.execute import router as execute_router
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"message": "AI Agent Platform Starter"}
+
 app.include_router(health_router)
 app.include_router(execute_router)
 
