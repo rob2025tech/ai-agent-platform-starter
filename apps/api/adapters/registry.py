@@ -1,5 +1,8 @@
+# apps/api/adapters/registry.py
+
 from .base_adapter import BaseAdapter
-from .mock_adapter import MockAdapter
+# from .mock_adapter import MockAdapter
+from .ollama_adapter import OllamaAdapter
 
 
 class AdapterRegistry:
@@ -9,7 +12,7 @@ class AdapterRegistry:
 
     def __init__(self):
         self._adapters: dict[str, BaseAdapter] = {
-            "mock": MockAdapter(),
+            # "mock": MockAdapter(),
         }
 
     def get(self, backend: str) -> BaseAdapter:
@@ -46,3 +49,11 @@ class AdapterRegistry:
         """
 
         return sorted(self._adapters.keys())
+    
+
+# Singleton registry used by the application
+# Application-wide registry
+registry = AdapterRegistry()
+
+# registry.register("mock", MockAdapter())
+registry.register("ollama", OllamaAdapter())
