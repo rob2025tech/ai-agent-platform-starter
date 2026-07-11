@@ -1,15 +1,24 @@
+from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env")
+    model_config = SettingsConfigDict(
+        env_file=BASE_DIR / ".env",
+        extra="ignore",
+    )
+
     ollama_url: str = "http://localhost:11434"
     ollama_model: str = "gemma3:4b"
-    # ollama_url: str
-    # ollama_model: str
 
-    # class Config:
-    #     env_file = ".env"
+    butterbase_api_base: str
+    butterbase_api_key: str
+
+    evermind_api_key: str | None = None
+    nebius_api_key: str | None = None
 
 
 settings = Settings()
