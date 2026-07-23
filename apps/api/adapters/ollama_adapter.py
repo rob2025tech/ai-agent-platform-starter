@@ -36,7 +36,7 @@ class OllamaAdapter(BaseAdapter):
             status="ok",
             # backend="ollama",
             backend=request.backend,
-            input=request.prompt,
+            prompt=request.prompt,
             output=result["response"],
         )
         
