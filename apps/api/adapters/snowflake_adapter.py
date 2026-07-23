@@ -10,6 +10,4 @@ class SnowflakeAdapter(BaseAdapter):
     """
 
     def execute(self, request: ExecuteRequest) -> ExecuteResponse:
-        raise NotImplementedError(
-            "Snowflake adapter has not been implemented yet."
-        )
+        raise NotImplementedError("Snowflake adapter has not been implemented yet.")

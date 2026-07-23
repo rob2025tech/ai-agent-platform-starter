@@ -2,7 +2,6 @@ from fastapi import APIRouter
 
 from apps.api.providers.butterbase.client import butterbase_client
 
-
 router = APIRouter(
     prefix="/butterbase",
     tags=["butterbase"],

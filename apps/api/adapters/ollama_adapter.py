@@ -39,4 +39,3 @@ class OllamaAdapter(BaseAdapter):
             prompt=request.prompt,
             output=result["response"],
         )
-        

@@ -4,6 +4,10 @@ version = "0.1.0"
 description = "FastAPI starter for building AI agent platforms"
 requires-python = ">=3.11"
 
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
 [tool.ruff]
 line-length = 100
 target-version = "py311"

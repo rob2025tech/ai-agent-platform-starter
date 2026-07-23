@@ -29,8 +29,7 @@ class AdapterRegistry:
         except KeyError:
             available = ", ".join(sorted(self._adapters.keys()))
             raise ValueError(
-                f"Unknown backend '{backend}'. "
-                f"Available backends: {available}"
+                f"Unknown backend '{backend}'. " f"Available backends: {available}"
             )
 
     def register(
@@ -50,7 +49,7 @@ class AdapterRegistry:
         """
 
         return sorted(self._adapters.keys())
-    
+
 
 # Singleton registry used by the application
 # Application-wide registry

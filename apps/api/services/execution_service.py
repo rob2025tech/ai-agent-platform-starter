@@ -25,5 +25,3 @@ def execute_agent(request: ExecuteRequest) -> ExecuteResponse:
 
     adapter = registry.get(request.backend)
     return adapter.execute(request)
-
-    

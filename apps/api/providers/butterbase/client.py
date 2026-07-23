@@ -26,7 +26,7 @@ class ButterbaseClient:
             response.raise_for_status()
 
             return response.json()
-        
+
     async def create_conversation(
         self,
         prompt: str,

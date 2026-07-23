@@ -19,15 +19,14 @@ from .routers.health import router as health_router
 from .routers.execute import router as execute_router
 from .routers import butterbase
 
-
 app = FastAPI()
+
 
 @app.get("/")
 def root():
     return {"message": "AI Agent Platform Starter"}
 
+
 app.include_router(health_router)
 app.include_router(execute_router)
-app.include_router(
-    butterbase.router
-)
+app.include_router(butterbase.router)

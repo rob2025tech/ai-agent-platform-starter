@@ -10,6 +10,7 @@ from pydantic import BaseModel
 #     message: str
 #     user_id: str | None = None
 
+
 class ExecuteRequest(BaseModel):
     prompt: str
     backend: str = "mock"

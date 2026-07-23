@@ -10,6 +10,4 @@ class OpenAIAdapter(BaseAdapter):
     """
 
     def execute(self, request: ExecuteRequest) -> ExecuteResponse:
-        raise NotImplementedError(
-            "OpenAI adapter has not been implemented yet."
-        )
+        raise NotImplementedError("OpenAI adapter has not been implemented yet.")
