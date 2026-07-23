@@ -17,6 +17,6 @@ class MockAdapter(BaseAdapter):
         return ExecuteResponse(
             status="ok",
             backend="mock",
-            input=request.prompt,
+            prompt=request.prompt,
             output="hello from mock backend",
         )
