@@ -11,6 +11,6 @@ from pydantic import BaseModel
 #     user_id: str | None = None
 
 class ExecuteRequest(BaseModel):
-    input: str
+    prompt: str
     backend: str = "mock"
     user_id: str | None = None

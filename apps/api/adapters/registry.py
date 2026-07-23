@@ -1,7 +1,7 @@
 # apps/api/adapters/registry.py
 
 from .base_adapter import BaseAdapter
-# from .mock_adapter import MockAdapter
+from .mock_adapter import MockAdapter
 from .ollama_adapter import OllamaAdapter
 
 
@@ -12,7 +12,8 @@ class AdapterRegistry:
 
     def __init__(self):
         self._adapters: dict[str, BaseAdapter] = {
-            # "mock": MockAdapter(),
+            "mock": MockAdapter(),
+            "ollama": OllamaAdapter(),
         }
 
     def get(self, backend: str) -> BaseAdapter:

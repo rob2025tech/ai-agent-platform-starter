@@ -21,8 +21,8 @@ class OllamaAdapter(BaseAdapter):
                 f"{settings.ollama_url}/api/generate",
                 json={
                     "model": settings.ollama_model,
-                    # "prompt": request.prompt,
-                    "prompt": request.input,
+                    "prompt": request.prompt,
+                    # "prompt": request.input,
                     "stream": False,
                 },
                 timeout=120,
@@ -36,7 +36,7 @@ class OllamaAdapter(BaseAdapter):
             status="ok",
             # backend="ollama",
             backend=request.backend,
-            input=request.input,
+            input=request.prompt,
             output=result["response"],
         )
         
