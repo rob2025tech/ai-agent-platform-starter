@@ -55,5 +55,5 @@ class AdapterRegistry:
 # Application-wide registry
 registry = AdapterRegistry()
 
-# registry.register("mock", MockAdapter())
+registry.register("mock", MockAdapter())
 registry.register("ollama", OllamaAdapter())
