@@ -15,14 +15,31 @@ class OllamaAdapter(BaseAdapter):
     Executes prompts using a local Ollama server.
     """
 
-    def execute(self, request: ExecuteRequest) -> ExecuteResponse:
+    def execute(
+        self,
+        request: ExecuteRequest,
+        context: str | None = None,
+    ) -> ExecuteResponse:
+
+        prompt = request.prompt
+
+        if context:
+            prompt = f"""
+Conversation memory:
+
+{context}
+
+User request:
+
+{request.prompt}
+"""
+
         with httpx.Client() as client:
             response = client.post(
                 f"{settings.ollama_url}/api/generate",
                 json={
                     "model": settings.ollama_model,
-                    "prompt": request.prompt,
-                    # "prompt": request.input,
+                    "prompt": prompt,
                     "stream": False,
                 },
                 timeout=120,
@@ -34,7 +51,6 @@ class OllamaAdapter(BaseAdapter):
 
         return ExecuteResponse(
             status="ok",
-            # backend="ollama",
             backend=request.backend,
             prompt=request.prompt,
             output=result["response"],

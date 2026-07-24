@@ -11,10 +11,11 @@ class AdapterRegistry:
     """
 
     def __init__(self):
-        self._adapters: dict[str, BaseAdapter] = {
-            "mock": MockAdapter(),
-            "ollama": OllamaAdapter(),
-        }
+        self._adapters: dict[str, BaseAdapter] = {}
+
+        # Default adapters
+        self.register("mock", MockAdapter())
+        self.register("ollama", OllamaAdapter())
 
     def get(self, backend: str) -> BaseAdapter:
         """
@@ -51,9 +52,5 @@ class AdapterRegistry:
         return sorted(self._adapters.keys())
 
 
-# Singleton registry used by the application
 # Application-wide registry
 registry = AdapterRegistry()
-
-registry.register("mock", MockAdapter())
-registry.register("ollama", OllamaAdapter())

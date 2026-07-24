@@ -12,7 +12,9 @@ class MockAdapter(BaseAdapter):
     without any external AI provider.
     """
 
-    def execute(self, request: ExecuteRequest) -> ExecuteResponse:
+    def execute(
+        self, request: ExecuteRequest, context: str | None = None
+    ) -> ExecuteResponse:
 
         return ExecuteResponse(
             status="ok",

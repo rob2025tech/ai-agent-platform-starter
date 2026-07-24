@@ -9,5 +9,7 @@ class SnowflakeAdapter(BaseAdapter):
     Executes prompts using Snowflake Cortex.
     """
 
-    def execute(self, request: ExecuteRequest) -> ExecuteResponse:
+    def execute(
+        self, request: ExecuteRequest, context: str | None = None
+    ) -> ExecuteResponse:
         raise NotImplementedError("Snowflake adapter has not been implemented yet.")

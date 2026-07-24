@@ -9,5 +9,7 @@ class OpenAIAdapter(BaseAdapter):
     Executes prompts using the OpenAI API.
     """
 
-    def execute(self, request: ExecuteRequest) -> ExecuteResponse:
+    def execute(
+        self, request: ExecuteRequest, context: str | None = None
+    ) -> ExecuteResponse:
         raise NotImplementedError("OpenAI adapter has not been implemented yet.")

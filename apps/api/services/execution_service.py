@@ -12,44 +12,42 @@ def execute_agent(request: ExecuteRequest) -> ExecuteResponse:
     """
     Main execution pipeline.
 
-    Later this becomes:
-
     Request
       ↓
     Load Context
       ↓
     Choose Skill
       ↓
-    Choose Tools
-      ↓
     Choose Backend
       ↓
-    Backend adapter
+    Backend Adapter
       ↓
     Run LLM
       ↓
-    Store Conversation
-    Memory
+    Store Memory
       ↓
-    Return/Response
+    Return Response
     """
 
-    # adapter = registry.get(request.backend)
-    # return adapter.execute(request)
+    # Load previous conversation memory
+    context = memory.load(request.user_id)
 
-    # context = memory.load(request.user_id)
-    # TODO:
-    # Pass context into the adapter once adapters support memory.
-
+    # Select skill
     skill = select(request)
+
+    # Select backend
     backend = request.backend or skill.backend
-    # backend = skill.backend if skill.backend else request.backend
 
+    # Get adapter
     adapter = registry.get(backend)
-    # adapter = registry.get(skill.backend)
 
-    result = adapter.execute(request)
+    # Execute with optional context
+    result = adapter.execute(
+        request=request,
+        context=context,
+    )
 
+    # Save interaction
     memory.save(
         request.user_id,
         request.prompt,
