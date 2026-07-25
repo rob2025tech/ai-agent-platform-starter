@@ -27,7 +27,7 @@ curl -X POST http://localhost:8000/execute \
 
 You should see this:
 
-{"detail":[{"type":"missing","loc":["body","input"],"msg":"Field required","input":{"backend":"mock","prompt":"Hello"}}]}% 
+{"status":"ok","backend":"mock","prompt":"Hello","output":"hello from mock backend"}%   
 
 5. To run both test in one command, you can run:
 
