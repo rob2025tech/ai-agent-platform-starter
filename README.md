@@ -57,6 +57,19 @@ You should see this:
 
 {"status":"ok","backend":"mock","prompt":"Hello","output":"hello from mock backend"}%   
 
+4b.
+
+curl -X POST http://localhost:8000/execute \
+-H "Content-Type: application/json" \
+-d '{
+  "backend":"ollama",
+  "prompt":"Say hello in one word."
+}'
+
+You should see this:
+
+{"status":"ok","backend":"ollama","prompt":"Say hello in one word.","output":"hello\n"}%   
+
 5. To run both test in one command, you can run:
 
 pytest
