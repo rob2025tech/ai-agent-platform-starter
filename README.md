@@ -3,9 +3,37 @@ This project uses relative imports, so to start uvicorn:
 
 1. Make sure you are in the root directory (i.e. ai-agent-platform-starter)
 
+cd /path/to/ai-agent-platform-starter
+
 2. From the root ai-agent-platform-starter directory, run:
 
+git status
+git pull   ### Daily startup
+git log --oneline -5
+
+rm -rf .venv   ### Migration / Broken env recovery
+python3.11 -m venv .venv   ### Migration / Broken env recovery
+source .venv/bin/activate   ### Daily startup
+
+pip install -e ".[dev]"  ### First-time setup / Migration / Broken env recovery
+
+which python
+python --version   ### Daily startup
+
+ollama list
+ollama pull qwen3:8b
+
+curl http://localhost:11434/api/tags
+
+Recreate apps/api/.env
 source .venv/bin/activate
+
+pytest -v   ### Daily startup
+black .
+ruff check .
+ruff check . --fix
+ruff check .
+
 uvicorn apps.api.main:app --reload
 
 3. From a different terminal, verify the API with this curl command:
