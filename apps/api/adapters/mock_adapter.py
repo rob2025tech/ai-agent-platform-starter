@@ -1,7 +1,6 @@
-from .base_adapter import BaseAdapter
-
 from ..models.request_models import ExecuteRequest
 from ..models.response_models import ExecuteResponse
+from .base_adapter import BaseAdapter
 
 
 class MockAdapter(BaseAdapter):

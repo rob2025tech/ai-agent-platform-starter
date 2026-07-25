@@ -1,11 +1,10 @@
 # apps/api/services/execution_service.py
 
-from ..memory.memory_manager import memory
-from ..skills.router import select
 from ..adapters.registry import registry
-
+from ..memory.memory_manager import memory
 from ..models.request_models import ExecuteRequest
 from ..models.response_models import ExecuteResponse
+from ..skills.router import select
 
 
 def execute_agent(request: ExecuteRequest) -> ExecuteResponse:

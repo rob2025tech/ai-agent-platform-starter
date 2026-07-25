@@ -1,5 +1,5 @@
-from apps.api.models.request_models import ExecuteRequest
 from apps.api.adapters.mock_adapter import MockAdapter
+from apps.api.models.request_models import ExecuteRequest
 
 
 def test_mock_adapter():
