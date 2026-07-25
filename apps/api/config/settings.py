@@ -1,3 +1,5 @@
+# apps/api/config/settings.py
+
 from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -11,7 +13,8 @@ class Settings(BaseSettings):
     )
 
     ollama_url: str = "http://localhost:11434"
-    ollama_model: str = "gemma3:4b"
+    # ollama_model: str = "gemma3:4b"
+    ollama_model: str = "qwen3:8b"
 
     butterbase_api_base: str
     butterbase_api_key: str
