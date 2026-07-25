@@ -4,6 +4,23 @@ version = "0.1.0"
 description = "FastAPI starter for building AI agent platforms"
 requires-python = ">=3.11"
 
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "httpx",
+    "pydantic",
+    "pydantic-settings",
+    "python-dotenv",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ruff",
+    "black",
+    "mypy",
+]
+
 [tool.black]
 line-length = 88
 target-version = ["py311"]
