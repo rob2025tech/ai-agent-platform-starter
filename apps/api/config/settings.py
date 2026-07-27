@@ -17,11 +17,14 @@ class Settings(BaseSettings):
     # ollama_model: str = "gemma3:4b"
     ollama_model: str = "qwen3:8b"
 
-    butterbase_api_base: str
-    butterbase_api_key: str
+    # butterbase_api_base: str
+    # butterbase_api_key: str
+    butterbase_api_base: str | None = None
+    butterbase_api_key: str | None = None
 
     evermind_api_key: str | None = None
     nebius_api_key: str | None = None
-
+    cerebras_api_key: str | None = None
+    
 
 settings = Settings()
