@@ -1,5 +1,7 @@
 # apps/api/adapters/registry.py
 
+from apps.api.config.settings import settings
+
 from .base_adapter import BaseAdapter
 from .mock_adapter import MockAdapter
 from .ollama_adapter import OllamaAdapter
@@ -16,7 +18,8 @@ class AdapterRegistry:
         # Default adapters
         self.register("mock", MockAdapter())
         self.register("ollama", OllamaAdapter())
-        self.register("cerebras", CerebrasAdapter())
+        if settings.cerebras_api_key:
+            self.register("cerebras", CerebrasAdapter())
 
     def get(self, backend: str) -> BaseAdapter:
         """

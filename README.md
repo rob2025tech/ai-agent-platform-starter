@@ -70,6 +70,22 @@ You should see this:
 
 {"status":"ok","backend":"ollama","prompt":"Say hello in one word.","output":"hello\n"}%   
 
+4c.
+
+curl -X POST http://localhost:8000/execute \
+-H "Content-Type: application/json" \
+-d '{
+  "backend":"cerebras",
+  "prompt":"Explain AI agents in one sentence."
+}'
+
+You should see this:
+{
+  "status":"ok",
+  "backend":"cerebras",
+  "output":"An AI agent is an autonomous software entity..."
+}
+
 5. To run both test in one command, you can run:
 
 pytest
@@ -81,5 +97,45 @@ black .
 pytest
 
 
+## Running Tests
 
+Run the full test suite:
 
+```bash
+pytest
+```
+
+Recommended during development (shows skipped tests and why):
+
+```bash
+pytest -ra
+```
+
+Example:
+
+```
+4 passed, 1 skipped
+
+SKIPPED [1] apps/api/tests/integration/test_cerebras_adapter.py:
+CEREBRAS_API_KEY missing
+```
+
+## Optional Provider Tests
+
+Some integration tests require provider API keys.
+
+Without the corresponding environment variable, those tests are skipped automatically.
+
+Example:
+
+- CEREBRAS_API_KEY → enables Cerebras integration tests
+- OPENAI_API_KEY → enables OpenAI integration tests (future)
+- ANTHROPIC_API_KEY → enables Anthropic integration tests (future)
+
+Use:
+
+```bash
+pytest -ra
+```
+
+to see which optional tests were skipped and why.

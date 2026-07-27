@@ -16,6 +16,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "pytest",
+    "pytest-anyio",
     "ruff",
     "black",
     "mypy",
@@ -31,6 +32,9 @@ target-version = "py311"
 
 [tool.pytest.ini_options]
 testpaths = ["apps/api/tests"]
+markers = [
+    "integration: tests requiring external services or API keys"
+]
 
 [tool.mypy]
 python_version = "3.11"
