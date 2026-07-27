@@ -3,7 +3,7 @@
 from .base_adapter import BaseAdapter
 from .mock_adapter import MockAdapter
 from .ollama_adapter import OllamaAdapter
-
+from .cerebras_adapter import CerebrasAdapter
 
 class AdapterRegistry:
     """
@@ -16,6 +16,7 @@ class AdapterRegistry:
         # Default adapters
         self.register("mock", MockAdapter())
         self.register("ollama", OllamaAdapter())
+        self.register("cerebras", CerebrasAdapter())
 
     def get(self, backend: str) -> BaseAdapter:
         """
