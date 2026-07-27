@@ -19,3 +19,4 @@ __pycache__/
 
 # Tools
 .ruff_cache/
+.rocketride/
