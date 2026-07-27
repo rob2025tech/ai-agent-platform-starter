@@ -1,3 +1,5 @@
+# apps/api/adapters/base_adapter.py
+
 from abc import ABC, abstractmethod
 
 from ..models.request_models import ExecuteRequest
