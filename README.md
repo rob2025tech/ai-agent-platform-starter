@@ -139,3 +139,6 @@ pytest -ra
 ```
 
 to see which optional tests were skipped and why.
+
+
+7/29/2026 git commit -m "checkpoint before Genspark changes"
