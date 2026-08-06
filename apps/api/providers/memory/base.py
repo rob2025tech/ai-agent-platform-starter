@@ -4,9 +4,26 @@ from abc import ABC, abstractmethod
 class MemoryProvider(ABC):
 
     @abstractmethod
-    async def remember(self, data):
+    async def save(
+        self,
+        user_id: str,
+        data: dict
+    ):
         pass
 
+
     @abstractmethod
-    async def search(self, query):
+    async def load(
+        self,
+        user_id: str
+    ):
+        pass
+
+
+    @abstractmethod
+    async def search(
+        self,
+        user_id: str,
+        query: str
+    ):
         pass
