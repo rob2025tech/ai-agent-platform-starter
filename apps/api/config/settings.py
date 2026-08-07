@@ -25,6 +25,11 @@ class Settings(BaseSettings):
     evermind_api_key: str | None = None
     nebius_api_key: str | None = None
     cerebras_api_key: str | None = None
+
+    memory_provider: str = "evermind"
+    llm_provider: str = "ollama"
+    storage_provider: str = "local"
+    analytics_provider: str = "local"
     
 
 settings = Settings()

@@ -1,3 +1,5 @@
+# apps/api/providers/memory/base.py
+
 from abc import ABC, abstractmethod
 
 
@@ -12,12 +14,12 @@ class MemoryProvider(ABC):
         pass
 
 
-    @abstractmethod
-    async def load(
-        self,
-        user_id: str
-    ):
-        pass
+    # @abstractmethod
+    # async def load(
+    #     self,
+    #     user_id: str
+    # ):
+    #     pass
 
 
     @abstractmethod

@@ -1,32 +1,48 @@
+# apps/api/providers/memory/evermind.py
+
 from apps.api.providers.memory.base import MemoryProvider
 
 
 class EverMindMemory(MemoryProvider):
 
     def __init__(self):
-        # initialize EverMind client here later
-        pass
-
+        # Temporary local storage.
+        # Later replace this with EverOS client.
+        self.memories = {}
 
     async def save(
         self,
         user_id: str,
-        data: dict
+        data: dict,
     ):
 
-        # TODO:
-        # send memory to EverMind
+        if user_id not in self.memories:
+            self.memories[user_id] = []
 
-        pass
+        self.memories[user_id].append(data)
 
 
     async def search(
         self,
         user_id: str,
-        query: str
+        query: str,
     ):
 
-        # TODO:
-        # search EverMind memories
+        user_memories = self.memories.get(
+            user_id,
+            [],
+        )
 
-        pass
+        results = []
+
+        for memory in user_memories:
+            if query.lower() in str(memory).lower():
+                results.append(memory)
+
+        return results
+
+    async def load(
+        self,
+        user_id: str,
+    ):
+        return self.memories.get(user_id, [])

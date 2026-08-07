@@ -32,6 +32,7 @@ target-version = "py311"
 
 [tool.pytest.ini_options]
 testpaths = ["apps/api/tests"]
+pythonpath = ["."]
 markers = [
     "integration: tests requiring external services or API keys"
 ]
