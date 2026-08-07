@@ -1,3 +1,5 @@
+# apps/api/tests/nextgen/test_execute_agent.py
+
 from fastapi.testclient import TestClient
 
 from apps.api.main import app
@@ -22,3 +24,4 @@ def test_execute_agent_memory():
 
     assert body["status"] == "ok"
     assert "output" in body
+    assert "memory_count" in body

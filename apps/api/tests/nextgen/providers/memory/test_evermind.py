@@ -24,4 +24,6 @@ async def test_save_and_search():
         "pizza",
     )
 
+    # assert isinstance(results, list)
     assert isinstance(results, list)
+    assert len(results) >= 1

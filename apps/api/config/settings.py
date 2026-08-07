@@ -15,7 +15,8 @@ class Settings(BaseSettings):
 
     ollama_url: str = "http://localhost:11434"
     # ollama_model: str = "gemma3:4b"
-    ollama_model: str = "qwen3:8b"
+    # ollama_model: str = "qwen3:8b"
+    ollama_model: str = "qwen3:1.7b"
 
     # butterbase_api_base: str
     # butterbase_api_key: str

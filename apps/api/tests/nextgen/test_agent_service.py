@@ -17,3 +17,4 @@ async def test_agent_service():
 
     assert result["status"] == "ok"
     assert "output" in result
+    assert isinstance(result["memory_count"], int)
