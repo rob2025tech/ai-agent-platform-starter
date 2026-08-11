@@ -15,3 +15,8 @@ class ExecuteRequest(BaseModel):
     prompt: str
     backend: str = "mock"
     user_id: str | None = None
+
+class ConversationCreate(BaseModel):
+    prompt: str
+    response: str
+    model: str

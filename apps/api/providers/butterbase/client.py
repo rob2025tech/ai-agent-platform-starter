@@ -16,6 +16,20 @@ class ButterbaseClient:
             "Content-Type": "application/json",
         }
 
+    async def health(self):
+        async with httpx.AsyncClient() as client:
+            response = await client.get(
+                f"{self.base_url}/conversations",
+                headers=self._headers(),
+            )
+
+            response.raise_for_status()
+
+            return {
+                "status": "ok",
+                "butterbase_status": response.status_code,
+            }
+
     async def list_conversations(self):
         async with httpx.AsyncClient() as client:
             response = await client.get(
